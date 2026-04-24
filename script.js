@@ -23,6 +23,13 @@ const productCards = productGrid
 
 let selectedCountry = "";
 
+function openShopSearch(query) {
+  const q = (query || "").trim();
+  const target = new URL("./shop.html", window.location.href);
+  if (q) target.searchParams.set("q", q);
+  window.location.href = target.toString();
+}
+
 function applyProductFilters() {
   if (!productGrid) return;
   const q = searchInput ? searchInput.value.trim().toLowerCase() : "";
@@ -48,6 +55,11 @@ function applyProductFilters() {
 
 if (searchInput) {
   searchInput.addEventListener("input", applyProductFilters);
+  searchInput.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    openShopSearch(searchInput.value);
+  });
 }
 
 if (countryFilter) {
