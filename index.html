@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Justtip.it — 🇺🇸 🇬🇧 🇨🇳 🇯🇵 🇰🇷 global picks</title>
+    <meta
+      name="description"
+      content="Browse skincare, snacks, cute stuff & more. 🇨🇳 China · 🇯🇵 Japan · 🇰🇷 Korea & beyond. Order on WhatsApp — no cart."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="./index.html">Justtip.it</a>
+
+        <div class="search-bar" role="search">
+          <span class="search-bar__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7" />
+              <path d="M20 20l-3-3" />
+            </svg>
+          </span>
+          <input
+            id="product-search"
+            type="search"
+            class="search-bar__input"
+            placeholder="Search products…"
+            autocomplete="off"
+            aria-label="Search products"
+          />
+        </div>
+
+        <div class="header-actions">
+          <a class="header-link" href="./shop.html">Shop all</a>
+          <a class="header-link" href="#sell">Sell</a>
+          <a class="header-link" href="#contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero-banner fade-in">
+        <div class="container hero-banner__inner">
+          <div class="hero-banner__copy">
+            <h1>🇺🇸 🇬🇧 🇨🇳 🇯🇵 🇰🇷 Stuff you can’t get locally? We’ve got you.</h1>
+            <p class="hero-banner__sub">
+              US, UK, China, Japan, Korea, AU & more — browse like a real shop, order on chat.
+            </p>
+            <a class="btn btn-primary" href="./shop.html">Start Browsing</a>
+          </div>
+          <div class="hero-banner__media" aria-hidden="true">
+            <img
+              src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=1000&q=80"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="categories" class="section section--gray fade-in" aria-labelledby="categories-heading">
+        <div class="container">
+          <div class="section-head">
+            <h2 id="categories-heading">Shop by category</h2>
+            <p class="section-head__sub">Tap a vibe — then filter by 🇺🇸 🇨🇳 🇯🇵 🇰🇷 etc. on the grid.</p>
+          </div>
+          <div class="category-rail" role="list">
+            <a href="./shop.html?cat=skincare" class="category-card" role="listitem">
+              <div class="category-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=400&q=80"
+                  alt=""
+                />
+              </div>
+              <span class="category-card__label">Skincare</span>
+            </a>
+            <a href="./shop.html?cat=makeup" class="category-card" role="listitem">
+              <div class="category-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80"
+                  alt=""
+                />
+              </div>
+              <span class="category-card__label">Makeup</span>
+            </a>
+            <a href="./shop.html?cat=snacks" class="category-card" role="listitem">
+              <div class="category-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1481391032119-d89fee407e44?auto=format&fit=crop&w=400&q=80"
+                  alt=""
+                />
+              </div>
+              <span class="category-card__label">Snacks &amp; Food</span>
+            </a>
+            <a href="./shop.html?cat=cute" class="category-card" role="listitem">
+              <div class="category-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1559190394-df5a28aab5c5?auto=format&fit=crop&w=400&q=80"
+                  alt=""
+                />
+              </div>
+              <span class="category-card__label">Jellycat / Cute</span>
+            </a>
+            <a href="./shop.html" class="category-card" role="listitem">
+              <div class="category-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=80"
+                  alt=""
+                />
+              </div>
+              <span class="category-card__label">Browse all</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="featured-products" class="section section--white fade-in" aria-labelledby="products-heading">
+        <div class="container">
+          <div class="section-head">
+            <h2 id="products-heading">Featured products</h2>
+            <p class="section-head__sub">Rp ballparks. Pick a country chip 👇 then hit Order.</p>
+          </div>
+          <div class="country-filters" id="country-filters" role="group" aria-label="Filter by source country">
+            <span class="country-filters__label">From</span>
+            <div class="country-filters__chips">
+              <button type="button" class="country-chip is-active" data-country="" aria-pressed="true">All</button>
+              <button type="button" class="country-chip" data-country="us" aria-pressed="false">US</button>
+              <button type="button" class="country-chip" data-country="uk" aria-pressed="false">UK</button>
+              <button type="button" class="country-chip" data-country="cn" aria-pressed="false">China</button>
+              <button type="button" class="country-chip" data-country="jp" aria-pressed="false">Japan</button>
+              <button type="button" class="country-chip" data-country="kr" aria-pressed="false">Korea</button>
+            </div>
+          </div>
+          <p class="search-hint" id="search-hint" hidden>No products match. Try another country or search term.</p>
+          <div class="product-grid" id="product-grid">
+            <article
+              class="product-card"
+              data-product-name="cerave moisturizing cream us"
+              data-category="skincare"
+              data-country="us"
+            >
+              <div class="product-card__preview">
+                <div class="product-card__image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=800&q=80"
+                    alt="CeraVe moisturizing cream"
+                    loading="lazy"
+                  />
+                  <span class="badge badge--verified">Verified</span>
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">CeraVe Moisturizing Cream (US)</h3>
+                  <p class="product-card__origin">United States</p>
+                  <p class="product-card__price">from Rp 285.000</p>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a
+                  class="btn btn-primary btn-block"
+                  href="https://api.whatsapp.com/send?text=Hi!%20I%20want%3A%20CeraVe%20Moisturizing%20Cream%20%28US%29"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Order
+                </a>
+              </div>
+            </article>
+
+            <article
+              class="product-card"
+              data-product-name="the ordinary niacinamide"
+              data-category="skincare"
+              data-country="uk"
+            >
+              <div class="product-card__preview">
+                <div class="product-card__image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1629198688008-7fc1e28c4333?auto=format&fit=crop&w=800&q=80"
+                    alt="The Ordinary serum"
+                    loading="lazy"
+                  />
+                  <span class="badge badge--verified">Verified</span>
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">The Ordinary Niacinamide 10%</h3>
+                  <p class="product-card__origin">United Kingdom</p>
+                  <p class="product-card__price">from Rp 165.000</p>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a
+                  class="btn btn-primary btn-block"
+                  href="https://api.whatsapp.com/send?text=Hi!%20I%20want%3A%20The%20Ordinary%20Niacinamide%2010%25"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Order
+                </a>
+              </div>
+            </article>
+
+            <article class="product-card" data-product-name="fenty gloss bomb" data-category="makeup" data-country="us">
+              <div class="product-card__preview">
+                <div class="product-card__image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=80"
+                    alt="Lip gloss"
+                    loading="lazy"
+                  />
+                  <span class="badge badge--verified">Verified</span>
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">Fenty Beauty Gloss Bomb (US)</h3>
+                  <p class="product-card__origin">United States</p>
+                  <p class="product-card__price">from Rp 310.000</p>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a
+                  class="btn btn-primary btn-block"
+                  href="https://api.whatsapp.com/send?text=Hi!%20I%20want%3A%20Fenty%20Beauty%20Gloss%20Bomb%20%28US%29"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Order
+                </a>
+              </div>
+            </article>
+
+            <article class="product-card" data-product-name="japan snack box" data-category="snacks" data-country="jp">
+              <div class="product-card__preview">
+                <div class="product-card__image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80"
+                    alt="Japanese snacks"
+                    loading="lazy"
+                  />
+                  <span class="badge badge--verified">Verified</span>
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">Japan Snack Assortment</h3>
+                  <p class="product-card__origin">Japan</p>
+                  <p class="product-card__price">from Rp 195.000</p>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a
+                  class="btn btn-primary btn-block"
+                  href="https://api.whatsapp.com/send?text=Hi!%20I%20want%3A%20Japan%20Snack%20Assortment"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Order
+                </a>
+              </div>
+            </article>
+
+            <article class="product-card" data-product-name="jellycat bashful" data-category="cute" data-country="uk">
+              <div class="product-card__preview">
+                <div class="product-card__image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1530610476181-d83430b00fdf?auto=format&fit=crop&w=800&q=80"
+                    alt="Soft plush toy"
+                    loading="lazy"
+                  />
+                  <span class="badge badge--verified">Verified</span>
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">Jellycat Bashful (UK)</h3>
+                  <p class="product-card__origin">United Kingdom</p>
+                  <p class="product-card__price">from Rp 620.000</p>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a
+                  class="btn btn-primary btn-block"
+                  href="https://api.whatsapp.com/send?text=Hi!%20I%20want%3A%20Jellycat%20Bashful%20%28UK%29"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Order
+                </a>
+              </div>
+            </article>
+
+            <article
+              class="product-card"
+              data-product-name="laneige sleeping mask"
+              data-category="global"
+              data-country="kr"
+            >
+              <div class="product-card__preview">
+                <div class="product-card__image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1556228578-0d85b1a4e521?auto=format&fit=crop&w=800&q=80"
+                    alt="K-beauty jar"
+                    loading="lazy"
+                  />
+                  <span class="badge badge--verified">Verified</span>
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">Laneige Water Sleeping Mask (KR)</h3>
+                  <p class="product-card__origin">Korea</p>
+                  <p class="product-card__price">from Rp 245.000</p>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a
+                  class="btn btn-primary btn-block"
+                  href="https://api.whatsapp.com/send?text=Hi!%20I%20want%3A%20Laneige%20Water%20Sleeping%20Mask%20%28KR%29"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Order
+                </a>
+              </div>
+            </article>
+
+            <article
+              class="product-card"
+              data-product-name="florasis lip kit china"
+              data-category="makeup"
+              data-country="cn"
+            >
+              <div class="product-card__preview">
+                <div class="product-card__image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80"
+                    alt="C-beauty lip products"
+                    loading="lazy"
+                  />
+                  <span class="badge badge--verified">Verified</span>
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__title">Florasis Engraving Lip (CN)</h3>
+                  <p class="product-card__origin">China</p>
+                  <p class="product-card__price">from Rp 220.000</p>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a
+                  class="btn btn-primary btn-block"
+                  href="https://api.whatsapp.com/send?text=Hi!%20I%20want%3A%20Florasis%20Engraving%20Lip%20%F0%9F%87%A8%F0%9F%87%B3%20%28China%29"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Order
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="order-strip fade-in" aria-label="How to order">
+        <div class="container order-strip__inner">
+          <div class="order-strip__item">
+            <span class="order-strip__n">1</span>
+            <p><strong>Choose a product</strong> from the grid</p>
+          </div>
+          <div class="order-strip__divider" aria-hidden="true"></div>
+          <div class="order-strip__item">
+            <span class="order-strip__n">2</span>
+            <p><strong>Chat us</strong> on WhatsApp — we confirm source &amp; shipping</p>
+          </div>
+          <div class="order-strip__divider" aria-hidden="true"></div>
+          <div class="order-strip__item">
+            <span class="order-strip__n">3</span>
+            <p><strong>We handle the rest</strong> — shipping, updates, the boring bits</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--gray fade-in">
+        <div class="container">
+          <div class="section-head">
+            <h2>Why shop with us</h2>
+            <p class="section-head__sub">Clean layout, no chaos — just stuff people actually want.</p>
+          </div>
+          <ul class="trust-list">
+            <li class="trust-list__item">
+              <span class="trust-list__icon" aria-hidden="true">✓</span>
+              <span>Verified where it matters</span>
+            </li>
+            <li class="trust-list__item">
+              <span class="trust-list__icon" aria-hidden="true">✓</span>
+              <span>Curated by people who get the struggle</span>
+            </li>
+            <li class="trust-list__item">
+              <span class="trust-list__icon" aria-hidden="true">✓</span>
+              <span>Clear, chat-first cross-border flow</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="sell" class="section section--white fade-in">
+        <div class="container">
+          <div class="section-head">
+            <h2>Sell with us</h2>
+            <p class="section-head__sub">
+              🇨🇳 🇯🇵 🇰🇷 🇺🇸 Store abroad? Drop your details — we’ll match you with buyers.
+            </p>
+          </div>
+          <form class="seller-form" id="seller-form">
+            <label>
+              Full name
+              <input type="text" name="fullName" placeholder="Your full name" required />
+            </label>
+            <label>
+              Store / brand name
+              <input type="text" name="storeName" placeholder="Your store or brand" required />
+            </label>
+            <label>
+              Main category
+              <select name="category" required>
+                <option value="">Select a category</option>
+                <option>Skincare</option>
+                <option>Makeup</option>
+                <option>Snacks &amp; food</option>
+                <option>Cute &amp; collectibles</option>
+                <option>US / global brands</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>
+              Country (where you ship from)
+              <select name="country" required>
+                <option value="">Select country</option>
+                <option value="cn">China</option>
+                <option value="jp">Japan</option>
+                <option value="kr">Korea</option>
+                <option value="us">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="tw">Taiwan</option>
+                <option value="sg">Singapore</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <label class="full-width" id="seller-country-other-wrap" hidden>
+              Specify country
+              <input type="text" name="countryOther" placeholder="e.g. Australia, Germany" />
+            </label>
+            <label>
+              WhatsApp
+              <input type="tel" name="whatsapp" placeholder="+1…" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="you@store.com" required />
+            </label>
+            <label class="full-width">
+              Store link (optional)
+              <input type="url" name="storeLink" placeholder="https://…" />
+            </label>
+            <label class="full-width">
+              What do you sell?
+              <textarea
+                name="notes"
+                rows="4"
+                placeholder="Bestsellers, lead times, shipping prefs…"
+                required
+              ></textarea>
+            </label>
+            <div class="full-width seller-form-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <p class="form-note">We usually respond within 1–2 business days.</p>
+              <p class="form-success" id="seller-form-success" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="section section--tint fade-in" id="request">
+        <div class="container final-cta">
+          <h2>Can’t find what you’re looking for?</h2>
+          <p class="final-cta__sub">🇺🇸 🇨🇳 🇯🇵 Random drop you’re hunting? Tell us.</p>
+          <a
+            class="btn btn-primary"
+            href="https://api.whatsapp.com/send?text=Hi!%20Looking%20for%3A%20"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Request a product
+          </a>
+        </div>
+      </section>
+
+      <section id="contact" class="section section--white section--compact fade-in">
+        <div class="container contact-bar">
+          <p class="contact-bar__text">Question? We’re here.</p>
+          <a
+            class="btn btn-secondary"
+            href="https://api.whatsapp.com/send?text=Hi!%20Question%20about%20Justtip.it%3A%20"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Message us
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <a class="logo logo--sm" href="#top">Justtip.it</a>
+        <div class="footer-links">
+          <a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="mailto:hello@justtip.it">Contact</a>
+        </div>
+        <p class="footer-note">© 2026 Justtip.it</p>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

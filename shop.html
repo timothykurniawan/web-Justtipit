@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop — Justtip.it</title>
+    <meta
+      name="description"
+      content="Browse skincare, makeup, snacks & more. Filter, sort, order on WhatsApp. No cart."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./shop.css" />
+  </head>
+  <body class="shop-page">
+    <header class="shop-topbar">
+      <div class="shop-topbar__inner">
+        <a class="shop-logo" href="./index.html">Justtip.it</a>
+        <form class="shop-topbar__search" role="search" action="./shop.html" method="get" id="shop-search-form">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M20 20l-3-3" />
+          </svg>
+          <input
+            type="search"
+            name="q"
+            id="shop-top-search"
+            placeholder="Search products (skincare, snacks, etc.)"
+            autocomplete="off"
+            aria-label="Search products"
+          />
+        </form>
+        <div class="shop-topbar__actions">
+          <a class="shop-link" href="./index.html#contact">Contact</a>
+          <a class="shop-link" href="./index.html#sell">Sell</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="shop-wrap">
+      <h1 class="shop-page__title" id="shop-page-title">Browse all products</h1>
+
+      <div class="shop-layout">
+        <aside class="shop-filters shop-filters--desktop" aria-label="Filters">
+          <div class="shop-filter-card">
+            <h3>Category</h3>
+            <div class="shop-filter-list">
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-cat-all" id="filter-cat-all-d" checked />
+                <span>All</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-cat" data-cat="skincare" />
+                <span>Skincare</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-cat" data-cat="makeup" />
+                <span>Makeup</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-cat" data-cat="snacks" />
+                <span>Snacks &amp; food</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-cat" data-cat="cute" />
+                <span>Jellycat / Cute</span>
+              </label>
+            </div>
+          </div>
+          <div class="shop-filter-card">
+            <h3>Region</h3>
+            <div class="shop-filter-list">
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-region-all" id="filter-region-all-d" checked />
+                <span>All</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-route" data-route="imp-us" />
+                <span>🇺🇸 US</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-route" data-route="imp-uk" />
+                <span>🇬🇧 UK</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-route" data-route="imp-cn" />
+                <span>🇨🇳 China</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-route" data-route="imp-jp" />
+                <span>🇯🇵 Japan</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-route" data-route="imp-kr" />
+                <span>🇰🇷 Korea</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-route" data-route="imp-au" />
+                <span>🇦🇺 Australia / NZ</span>
+              </label>
+            </div>
+          </div>
+          <div class="shop-filter-card">
+            <h3>Price (USD est.)</h3>
+            <div class="shop-filter-list" id="filter-price-d">
+              <label class="shop-radio">
+                <input type="radio" class="js-filter-price" name="price_d" value="all" checked />
+                <span>All</span>
+              </label>
+              <label class="shop-radio">
+                <input type="radio" class="js-filter-price" name="price_d" value="lt10" />
+                <span>Under $10</span>
+              </label>
+              <label class="shop-radio">
+                <input type="radio" class="js-filter-price" name="price_d" value="10-30" />
+                <span>$10 – $30</span>
+              </label>
+              <label class="shop-radio">
+                <input type="radio" class="js-filter-price" name="price_d" value="gt30" />
+                <span>$30+</span>
+              </label>
+            </div>
+            <div class="shop-toggle">
+              <span>Verified only</span>
+              <button type="button" class="shop-toggle__switch js-toggle-ver" id="toggle-ver-d" aria-pressed="false" aria-label="Verified sellers only"></button>
+            </div>
+          </div>
+        </aside>
+
+        <div class="shop-main">
+          <div class="shop-toolbar">
+            <p class="shop-result-count" id="shop-result-count">Showing <strong>0</strong> products</p>
+            <div class="shop-sort">
+              <label for="shop-sort" class="visually-hidden">Sort by</label>
+              <select id="shop-sort" class="js-sort" aria-label="Sort products">
+                <option value="popular">Most popular</option>
+                <option value="newest">Newest</option>
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+              </select>
+            </div>
+          </div>
+          <div class="shop-grid" id="shop-grid" role="list"></div>
+          <p class="shop-empty" id="shop-empty" hidden>No products match your filters. <a href="./shop.html">Reset</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-mobile-filters" aria-hidden="false">
+      <button type="button" class="shop-btn-filter" id="shop-open-filters" aria-haspopup="dialog" aria-controls="shop-drawer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="4" y1="6" x2="20" y2="6" />
+          <line x1="7" y1="12" x2="20" y2="12" />
+          <line x1="10" y1="18" x2="20" y2="18" />
+        </svg>
+        Filter
+      </button>
+    </div>
+
+    <div class="shop-drawer-backdrop" id="shop-backdrop" aria-hidden="true"></div>
+    <div
+      class="shop-drawer"
+      id="shop-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="shop-drawer-title"
+      aria-hidden="true"
+    >
+      <div class="shop-drawer__handle" aria-hidden="true"></div>
+      <div class="shop-drawer__head">
+        <h2 id="shop-drawer-title">Filters</h2>
+        <button type="button" class="shop-drawer__close" id="shop-close-filters" aria-label="Close filters">
+          ×
+        </button>
+      </div>
+      <div class="shop-drawer__body">
+        <div class="shop-filters shop-filters--drawer" id="filter-drawer-inner">
+          <div class="shop-filter-card">
+            <h3>Category</h3>
+            <div class="shop-filter-list">
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-cat-all" id="filter-cat-all-m" checked />
+                <span>All</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-cat-m" data-cat="skincare" />
+                <span>Skincare</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-cat-m" data-cat="makeup" />
+                <span>Makeup</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-cat-m" data-cat="snacks" />
+                <span>Snacks &amp; food</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-cat-m" data-cat="cute" />
+                <span>Jellycat / Cute</span>
+              </label>
+            </div>
+          </div>
+          <div class="shop-filter-card">
+            <h3>Region</h3>
+            <div class="shop-filter-list">
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-region-all" id="filter-region-all-m" checked />
+                <span>All</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-route-m" data-route="imp-us" />
+                <span>🇺🇸 US</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-route-m" data-route="imp-uk" />
+                <span>🇬🇧 UK</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-route-m" data-route="imp-cn" />
+                <span>🇨🇳 China</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-route-m" data-route="imp-jp" />
+                <span>🇯🇵 Japan</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-route-m" data-route="imp-kr" />
+                <span>🇰🇷 Korea</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" class="js-filter-route-m" data-route="imp-au" />
+                <span>🇦🇺 Australia / NZ</span>
+              </label>
+            </div>
+          </div>
+          <div class="shop-filter-card">
+            <h3>Price (USD est.)</h3>
+            <div class="shop-filter-list">
+              <label class="shop-radio">
+                <input type="radio" class="js-filter-price-m" name="price_m" value="all" checked />
+                <span>All</span>
+              </label>
+              <label class="shop-radio">
+                <input type="radio" class="js-filter-price-m" name="price_m" value="lt10" />
+                <span>Under $10</span>
+              </label>
+              <label class="shop-radio">
+                <input type="radio" class="js-filter-price-m" name="price_m" value="10-30" />
+                <span>$10 – $30</span>
+              </label>
+              <label class="shop-radio">
+                <input type="radio" class="js-filter-price-m" name="price_m" value="gt30" />
+                <span>$30+</span>
+              </label>
+            </div>
+            <div class="shop-toggle">
+              <span>Verified only</span>
+              <button type="button" class="shop-toggle__switch js-toggle-ver" id="toggle-ver-m" aria-pressed="false" aria-label="Verified sellers only"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shop-drawer__foot">
+        <button type="button" class="shop-btn-apply" id="shop-apply-filters">Show results</button>
+      </div>
+    </div>
+
+    <a
+      class="shop-cta-fab"
+      href="https://api.whatsapp.com/send?text=Hi!%20I%27m%20looking%20for%20a%20custom%20product%3A%20"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Not finding what you are looking for? Request a custom product on WhatsApp"
+    >
+      <span class="shop-cta-fab__grip" aria-hidden="true"></span>
+      <span class="shop-cta-fab__text">
+        <span class="shop-cta-fab__line">Not finding it?</span>
+        <span class="shop-cta-fab__line shop-cta-fab__line--em">Request custom</span>
+      </span>
+    </a>
+
+    <footer class="shop-footer">
+      <div class="shop-footer__inner">
+        <a href="./index.html">← Home</a>
+        <span>Order on WhatsApp · No cart</span>
+      </div>
+    </footer>
+
+    <script src="./shop.js"></script>
+  </body>
+</html>
