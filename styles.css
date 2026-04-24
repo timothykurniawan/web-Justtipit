@@ -255,6 +255,79 @@ a {
   color: var(--muted);
 }
 
+/* --- About story --- */
+.about-section {
+  border-top: 1px solid var(--border);
+}
+
+.about-story {
+  max-width: 980px;
+}
+
+.about-story .section-head {
+  margin-bottom: 16px;
+}
+
+.about-story__grid {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 860px) {
+  .about-story__grid {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 22px;
+    align-items: start;
+  }
+}
+
+.about-story__lead {
+  margin: 0;
+  padding: 18px;
+  border: 1px solid #e9e9e9;
+  border-radius: var(--radius);
+  background: #ffffff;
+  color: #2f2f2f;
+  line-height: 1.68;
+}
+
+.about-story__lead strong {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.about-story__card {
+  padding: 18px;
+  border: 1px solid #ececec;
+  border-radius: var(--radius);
+  background: #ffffff;
+}
+
+.about-story__card h3 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.about-story__card ul {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: #3b3b3b;
+  line-height: 1.6;
+}
+
+@media (min-width: 860px) {
+  .about-story__lead,
+  .about-story__card {
+    min-height: 100%;
+  }
+}
+
+.about-story__card li + li {
+  margin-top: 6px;
+}
+
 /* --- Category rail (horizontal scroll) --- */
 .category-rail {
   display: flex;
