@@ -66,6 +66,7 @@ if (countryFilter) {
 
 const sellerForm = document.querySelector("#seller-form");
 const sellerFormSuccess = document.querySelector("#seller-form-success");
+const JUSTTIP_WA_NUMBER = "6282111101329";
 
 const countrySelect = document.querySelector('select[name="country"]');
 const countryOtherWrap = document.querySelector("#seller-country-other-wrap");
@@ -89,7 +90,42 @@ if (countrySelect) {
 if (sellerForm && sellerFormSuccess) {
   sellerForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    sellerFormSuccess.textContent = "Thanks — we received your application and will be in touch soon.";
+    const formData = new FormData(sellerForm);
+    const country = formData.get("country") || "";
+    const countryLabelMap = {
+      cn: "China",
+      jp: "Japan",
+      kr: "Korea",
+      us: "United States",
+      uk: "United Kingdom",
+      tw: "Taiwan",
+      sg: "Singapore",
+      other: "Other",
+    };
+    const countryValue =
+      country === "other" ? formData.get("countryOther") || "Other (not specified)" : countryLabelMap[country] || country;
+
+    const messageLines = [
+      "Hi! New seller application:",
+      "",
+      "Full name: " + (formData.get("fullName") || "-"),
+      "Store / brand name: " + (formData.get("storeName") || "-"),
+      "Main category: " + (formData.get("category") || "-"),
+      "Country (ship from): " + (countryValue || "-"),
+      "WhatsApp: " + (formData.get("whatsapp") || "-"),
+      "Email: " + (formData.get("email") || "-"),
+      "Store link: " + (formData.get("storeLink") || "-"),
+      "What do you sell: " + (formData.get("notes") || "-"),
+    ];
+
+    const waUrl =
+      "https://api.whatsapp.com/send?phone=" +
+      JUSTTIP_WA_NUMBER +
+      "&text=" +
+      encodeURIComponent(messageLines.join("\n"));
+
+    window.open(waUrl, "_blank", "noopener,noreferrer");
+    sellerFormSuccess.textContent = "Thanks — opening WhatsApp with your completed form now.";
     sellerForm.reset();
     syncSellerCountryOther();
   });
