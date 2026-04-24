@@ -117,7 +117,9 @@
   }
 
   function waUrl(text) {
-    return "https://api.whatsapp.com/send?text=" + encodeURIComponent("Hi! I want: " + text);
+    return (
+      "https://api.whatsapp.com/send?phone=6282111101329&text=" + encodeURIComponent("Hi! I want: " + text)
+    );
   }
 
   function render() {
