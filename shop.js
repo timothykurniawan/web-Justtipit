@@ -6,7 +6,8 @@
     skincare: "Skincare",
     makeup: "Makeup",
     snacks: "Snacks & food",
-    cute: "Jellycat / Cute",
+    cute: "Toys / Plushies",
+    clothes: "Clothes",
   };
 
   const REGION_LABELS = {
@@ -44,6 +45,9 @@
     { id: 22, name: "Elmer's Slime + Stickers (US) bundle", category: "cute", region: "imp-us", priceUsd: 7.2, image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&q=80", verified: false, extra: null, popularity: 58, createdAt: "2024-12-20" },
     { id: 23, name: "Emina Lip Cushion", category: "makeup", region: "imp-cn", priceUsd: 2.4, image: "https://images.unsplash.com/photo-1522338256747-0e32d0f6e7d5?w=400&q=80", verified: true, extra: "popular", popularity: 81, createdAt: "2024-10-10" },
     { id: 24, name: "Kopiko + Torabika coffee mix 🇮🇩☕", category: "snacks", region: "imp-au", priceUsd: 2.1, image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80", verified: true, extra: "popular", popularity: 95, createdAt: "2024-10-20" },
+    { id: 25, name: "Uniqlo AIRism Tee (JP)", category: "clothes", region: "imp-jp", priceUsd: 14, image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80", verified: true, extra: "new", popularity: 82, createdAt: "2025-02-01" },
+    { id: 26, name: "Baseball Varsity Jacket (KR)", category: "clothes", region: "imp-kr", priceUsd: 29, image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80", verified: true, extra: null, popularity: 75, createdAt: "2025-01-18" },
+    { id: 27, name: "Casual Linen Shirt (CN)", category: "clothes", region: "imp-cn", priceUsd: 18, image: "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=400&q=80", verified: true, extra: "popular", popularity: 85, createdAt: "2025-02-08" },
   ];
 
   const state = {

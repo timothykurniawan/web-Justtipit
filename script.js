@@ -22,12 +22,22 @@ const productCards = productGrid
   : [];
 
 let selectedCountry = "";
+const SHOP_NAV_TRANSITION_MS = 170;
+
+function goToShopWithTransition(url) {
+  const href = String(url || "");
+  if (!href) return;
+  document.body.classList.add("is-leaving-shop");
+  window.setTimeout(() => {
+    window.location.href = href;
+  }, SHOP_NAV_TRANSITION_MS);
+}
 
 function openShopSearch(query) {
   const q = (query || "").trim();
   const target = new URL("./shop.html", window.location.href);
   if (q) target.searchParams.set("q", q);
-  window.location.href = target.toString();
+  goToShopWithTransition(target.toString());
 }
 
 function applyProductFilters() {
@@ -75,6 +85,19 @@ if (countryFilter) {
     });
   });
 }
+
+document
+  .querySelectorAll('a[href="./shop.html"], a[href^="./shop.html?"], a[href="/shop.html"], a[href^="/shop.html?"]')
+  .forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (event.defaultPrevented) return;
+      if (event.button !== 0) return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (link.target && link.target.toLowerCase() === "_blank") return;
+      event.preventDefault();
+      goToShopWithTransition(link.href);
+    });
+  });
 
 const sellerForm = document.querySelector("#seller-form");
 const sellerFormSuccess = document.querySelector("#seller-form-success");

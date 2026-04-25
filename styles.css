@@ -27,6 +27,26 @@ body {
   background: #ffffff;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  transition: opacity 0.17s ease, transform 0.17s ease, filter 0.17s ease;
+  transform-origin: 50% 40%;
+}
+
+body.is-leaving-shop {
+  opacity: 0.92;
+  transform: translateY(3px) scale(0.998);
+  filter: saturate(0.94);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+
+  body.is-leaving-shop {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
 }
 
 img {
@@ -399,7 +419,7 @@ a {
 @media (min-width: 900px) {
   .category-rail {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     overflow: visible;
     padding-bottom: 0;
   }
