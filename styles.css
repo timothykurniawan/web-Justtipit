@@ -418,14 +418,16 @@ a {
 
 @media (min-width: 900px) {
   .category-rail {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    overflow: visible;
-    padding-bottom: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scroll-snap-type: x mandatory;
   }
 
   .category-card {
-    flex: unset;
+    flex: 0 0 calc((100% - (4 * 14px)) / 5);
+    min-width: 150px;
   }
 }
 
