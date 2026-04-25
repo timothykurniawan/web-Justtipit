@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adidas Cheongsam Jacket — Justtip.it</title>
+    <meta
+      name="description"
+      content="Choose color and size for Adidas Cheongsam Jacket, then order directly through WhatsApp."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./adidas-cheongsam-jacket.css" />
+  </head>
+  <body>
+    <header class="product-header">
+      <a href="./shop.html?cat=clothes" class="product-header__back">← Back to Shop</a>
+      <a href="./index.html" class="product-header__logo">Justtip.it</a>
+    </header>
+
+    <main class="product-page">
+      <section class="gallery-panel">
+        <div class="main-image-wrap">
+          <img
+            id="main-image"
+            src="./assets/adidas-cheongsam-sand-gold.png"
+            alt="Adidas Cheongsam Jacket in Oatmeal Yellow"
+          />
+        </div>
+        <div class="thumb-scroll" id="thumb-scroll" role="list" aria-label="Jacket gallery">
+          <button
+            class="thumb-card is-active"
+            type="button"
+            data-color="Oatmeal Yellow"
+            data-image="./assets/adidas-cheongsam-sand-gold.png"
+            role="listitem"
+            aria-pressed="true"
+          >
+            <img src="./assets/adidas-cheongsam-sand-gold.png" alt="Oatmeal Yellow jacket thumbnail" />
+          </button>
+          <button
+            class="thumb-card"
+            type="button"
+            data-color="Dark Grey"
+            data-image="./assets/adidas-cheongsam-slate-blue.png"
+            role="listitem"
+            aria-pressed="false"
+          >
+            <img src="./assets/adidas-cheongsam-slate-blue.png" alt="Dark Grey jacket thumbnail" />
+          </button>
+          <button
+            class="thumb-card"
+            type="button"
+            data-color="Red"
+            data-image="./assets/adidas-cheongsam-burgundy.png"
+            role="listitem"
+            aria-pressed="false"
+          >
+            <img src="./assets/adidas-cheongsam-burgundy.png" alt="Red jacket thumbnail" />
+          </button>
+          <button
+            class="thumb-card"
+            type="button"
+            data-color="Focus Olive"
+            data-image="./assets/adidas-cheongsam-olive-green.png"
+            role="listitem"
+            aria-pressed="false"
+          >
+            <img src="./assets/adidas-cheongsam-olive-green.png" alt="Focus Olive jacket thumbnail" />
+          </button>
+          <button
+            class="thumb-card"
+            type="button"
+            data-color="Light Grey Blue"
+            data-image="./assets/adidas-cheongsam-ice-blue-v3.png"
+            role="listitem"
+            aria-pressed="false"
+          >
+            <img src="./assets/adidas-cheongsam-ice-blue-v3.png" alt="Light Grey Blue jacket thumbnail" />
+          </button>
+        </div>
+      </section>
+
+      <section class="detail-panel">
+        <p class="meta-line">Sold by verified partner</p>
+        <h1>Adidas Cheongsam Jacket</h1>
+        <p class="product-price">Rp 3.349.500</p>
+
+        <div class="option-group">
+          <p class="option-label">Choose color: <strong id="selected-color-label">Oatmeal Yellow</strong></p>
+          <div class="color-scroll" id="color-scroll" role="list" aria-label="Jacket colors">
+            <button class="color-chip is-active" type="button" data-color="Oatmeal Yellow" aria-pressed="true" role="listitem">
+              Oatmeal Yellow
+            </button>
+            <button class="color-chip" type="button" data-color="Dark Grey" aria-pressed="false" role="listitem">
+              Dark Grey
+            </button>
+            <button class="color-chip" type="button" data-color="Red" aria-pressed="false" role="listitem">
+              Red
+            </button>
+            <button class="color-chip" type="button" data-color="Focus Olive" aria-pressed="false" role="listitem">
+              Focus Olive
+            </button>
+            <button class="color-chip" type="button" data-color="Light Grey Blue" aria-pressed="false" role="listitem">
+              Light Grey Blue
+            </button>
+          </div>
+        </div>
+
+        <div class="option-group">
+          <p class="option-label">Choose size: <strong id="selected-size-label">not selected</strong></p>
+          <div class="size-grid" id="size-grid" role="list" aria-label="Jacket sizes">
+            <button class="size-chip" type="button" data-size="2XS" aria-pressed="false" role="listitem">2XS</button>
+            <button class="size-chip" type="button" data-size="XS" aria-pressed="false" role="listitem">XS</button>
+            <button class="size-chip" type="button" data-size="S" aria-pressed="false" role="listitem">S</button>
+            <button class="size-chip" type="button" data-size="M" aria-pressed="false" role="listitem">M</button>
+            <button class="size-chip" type="button" data-size="L" aria-pressed="false" role="listitem">L</button>
+            <button class="size-chip" type="button" data-size="XL" aria-pressed="false" role="listitem">XL</button>
+            <button class="size-chip" type="button" data-size="2XL" aria-pressed="false" role="listitem">2XL</button>
+            <button class="size-chip" type="button" data-size="3XL" aria-pressed="false" role="listitem">3XL</button>
+            <button class="size-chip" type="button" data-size="4XL" aria-pressed="false" role="listitem">4XL</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="order-panel">
+        <h2>Order summary</h2>
+        <p id="selected-variant" class="product-variant">Color: Oatmeal Yellow · Size: not selected</p>
+        <p class="summary-price">Total: Rp 3.349.500</p>
+        <a
+          id="order-now"
+          class="btn-order"
+          href="https://api.whatsapp.com/send?phone=6282111101329&text=Hi!%20I%20want%3A%20Adidas%20Cheongsam%20Jacket%20-%20Color%3A%20Sand%20Gold%2C%20Size%3A%20Please%20confirm%20available%20sizes"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Order on WhatsApp
+        </a>
+        <a class="btn-back" href="./shop.html?cat=clothes">Continue browsing</a>
+      </aside>
+    </main>
+
+    <script src="./adidas-cheongsam-jacket.js"></script>
+  </body>
+</html>

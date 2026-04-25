@@ -2,6 +2,9 @@
  * Justtip.it — shop / search results (UI only, mock data)
  */
 (function () {
+  const USD_TO_IDR_RATE = 16000;
+  const IDR_FORMATTER = new Intl.NumberFormat("id-ID");
+
   const CATEGORY_LABELS = {
     skincare: "Skincare",
     makeup: "Makeup",
@@ -21,33 +24,32 @@
 
   /** One region per product (matches filter `data-route`). */
   const MOCK_PRODUCTS = [
-    { id: 1, name: "CeraVe Moisturizing Cream 340g", category: "skincare", region: "imp-us", priceUsd: 12.5, image: "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=400&q=80", verified: true, extra: "popular", popularity: 98, createdAt: "2024-10-12" },
-    { id: 2, name: "The Ordinary Niacinamide 10% + Zinc", category: "skincare", region: "imp-uk", priceUsd: 6.2, image: "https://images.unsplash.com/photo-1629198688008-7fc1e28c4333?w=400&q=80", verified: true, extra: "new", popularity: 92, createdAt: "2025-01-04" },
-    { id: 3, name: "Laneige Water Sleeping Mask 70ml", category: "skincare", region: "imp-kr", priceUsd: 18, image: "https://images.unsplash.com/photo-1556228578-0d85b1a4e521?w=400&q=80", verified: true, extra: null, popularity: 88, createdAt: "2024-11-20" },
-    { id: 4, name: "Kiehl's Ultra Facial Cream 50ml", category: "skincare", region: "imp-us", priceUsd: 32, image: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&q=80", verified: true, extra: "popular", popularity: 90, createdAt: "2024-09-01" },
-    { id: 5, name: "Into You Shero Lip Mud 🇨🇳", category: "makeup", region: "imp-cn", priceUsd: 9.5, image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80", verified: true, extra: "new", popularity: 76, createdAt: "2025-01-15" },
-    { id: 6, name: "Fenty Beauty Gloss Bomb", category: "makeup", region: "imp-us", priceUsd: 22, image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&q=80", verified: true, extra: "popular", popularity: 94, createdAt: "2024-12-10" },
-    { id: 7, name: "Wardah Instaperfect Lip Cream", category: "makeup", region: "imp-cn", priceUsd: 4.2, image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80", verified: true, extra: null, popularity: 72, createdAt: "2024-08-22" },
-    { id: 8, name: "Indomie Goreng big box 🌏", category: "snacks", region: "imp-cn", priceUsd: 7.5, image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400&q=80", verified: true, extra: "popular", popularity: 99, createdAt: "2024-07-11" },
-    { id: 9, name: "Chitato + Garuda nuts set", category: "snacks", region: "imp-cn", priceUsd: 5.1, image: "https://images.unsplash.com/photo-1481391032119-d89fee407e44?w=400&q=80", verified: true, extra: null, popularity: 84, createdAt: "2024-10-30" },
-    { id: 10, name: "Japan Pocky & KitKat Assortment", category: "snacks", region: "imp-jp", priceUsd: 11, image: "https://images.unsplash.com/photo-1514516345957-556ca7b32e58?w=400&q=80", verified: true, extra: "new", popularity: 87, createdAt: "2024-12-22" },
-    { id: 11, name: "Beng Beng Maxx box 🌏", category: "snacks", region: "imp-cn", priceUsd: 3.5, image: "https://images.unsplash.com/photo-1606312619070-09c01c665d6e?w=400&q=80", verified: false, extra: null, popularity: 65, createdAt: "2024-06-15" },
-    { id: 12, name: "Jellycat Bashful Bunny Medium (UK)", category: "cute", region: "imp-uk", priceUsd: 28, image: "https://images.unsplash.com/photo-1530610476181-d83430b00fdf?w=400&q=80", verified: true, extra: "popular", popularity: 91, createdAt: "2024-11-05" },
-    { id: 13, name: "BT21 Plush Keychain (KR)", category: "cute", region: "imp-kr", priceUsd: 8.8, image: "https://images.unsplash.com/photo-1559190394-df5a28aab5c5?w=400&q=80", verified: true, extra: "new", popularity: 80, createdAt: "2025-01-08" },
-    { id: 14, name: "Sanrio Cinnamoroll Pouch (JP)", category: "cute", region: "imp-jp", priceUsd: 14, image: "https://images.unsplash.com/photo-1566576912321-58a6e64c52e5?w=400&q=80", verified: true, extra: null, popularity: 78, createdAt: "2024-09-19" },
-    { id: 15, name: "Smiski Glow (JP blind box)", category: "cute", region: "imp-jp", priceUsd: 10.5, image: "https://images.unsplash.com/photo-1515488042361-ee00e0d45a10?w=400&q=80", verified: true, extra: "popular", popularity: 83, createdAt: "2024-12-01" },
-    { id: 16, name: "Y.O.U. Radiance Face Wash", category: "skincare", region: "imp-cn", priceUsd: 3.2, image: "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=400&q=80", verified: true, extra: "popular", popularity: 86, createdAt: "2024-10-18" },
-    { id: 17, name: "Somethinc Hylapot", category: "skincare", region: "imp-cn", priceUsd: 6, image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80", verified: true, extra: "new", popularity: 79, createdAt: "2025-01-02" },
-    { id: 18, name: "Rollover Reaction Cushion", category: "makeup", region: "imp-cn", priceUsd: 9.2, image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80", verified: true, extra: null, popularity: 74, createdAt: "2024-11-28" },
-    { id: 19, name: "Rilakkuma Plush S (JP)", category: "cute", region: "imp-jp", priceUsd: 15, image: "https://images.unsplash.com/photo-1530610476181-d83430b00fdf?w=400&q=80", verified: true, extra: "popular", popularity: 77, createdAt: "2024-08-30" },
-    { id: 20, name: "DHC Deep Cleansing Oil 200ml (JP)", category: "skincare", region: "imp-jp", priceUsd: 11, image: "https://images.unsplash.com/photo-1571875257727-256c39da42af?w=400&q=80", verified: true, extra: "popular", popularity: 89, createdAt: "2024-10-01" },
-    { id: 21, name: "Cosrx Snail 96 Essence 100ml (KR)", category: "skincare", region: "imp-kr", priceUsd: 13, image: "https://images.unsplash.com/photo-1611930022073-7de4907f7f0d?w=400&q=80", verified: true, extra: "new", popularity: 96, createdAt: "2024-12-12" },
-    { id: 22, name: "Elmer's Slime + Stickers (US) bundle", category: "cute", region: "imp-us", priceUsd: 7.2, image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&q=80", verified: false, extra: null, popularity: 58, createdAt: "2024-12-20" },
-    { id: 23, name: "Emina Lip Cushion", category: "makeup", region: "imp-cn", priceUsd: 2.4, image: "https://images.unsplash.com/photo-1522338256747-0e32d0f6e7d5?w=400&q=80", verified: true, extra: "popular", popularity: 81, createdAt: "2024-10-10" },
-    { id: 24, name: "Kopiko + Torabika coffee mix 🇮🇩☕", category: "snacks", region: "imp-au", priceUsd: 2.1, image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80", verified: true, extra: "popular", popularity: 95, createdAt: "2024-10-20" },
-    { id: 25, name: "Uniqlo AIRism Tee (JP)", category: "clothes", region: "imp-jp", priceUsd: 14, image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80", verified: true, extra: "new", popularity: 82, createdAt: "2025-02-01" },
-    { id: 26, name: "Baseball Varsity Jacket (KR)", category: "clothes", region: "imp-kr", priceUsd: 29, image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80", verified: true, extra: null, popularity: 75, createdAt: "2025-01-18" },
-    { id: 27, name: "Casual Linen Shirt (CN)", category: "clothes", region: "imp-cn", priceUsd: 18, image: "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=400&q=80", verified: true, extra: "popular", popularity: 85, createdAt: "2025-02-08" },
+    {
+      id: 28,
+      name: "Adidas Cheongsam Jacket",
+      category: "clothes",
+      region: "imp-cn",
+      priceUsd: 209.34375,
+      image: "./assets/adidas-cheongsam-sand-gold.png",
+      verified: true,
+      extra: "new",
+      popularity: 97,
+      createdAt: "2026-04-25",
+      detailPage: "./adidas-cheongsam-jacket.html",
+    },
+    {
+      id: 29,
+      name: "Jellycat Bunny Collection",
+      category: "cute",
+      region: "imp-cn",
+      priceUsd: 81.1875,
+      image: "./assets/jellycat-bunny-variant-01.png",
+      verified: true,
+      extra: "new",
+      popularity: 93,
+      createdAt: "2026-04-25",
+      detailPage: "./jellycat-bunny-collection.html",
+    },
   ];
 
   const state = {
@@ -73,7 +75,7 @@
   const applyFilterBtn = document.getElementById("shop-apply-filters");
 
   function formatPrice(n) {
-    return "$" + n.toFixed(2);
+    return "Rp " + IDR_FORMATTER.format(Math.round(n * USD_TO_IDR_RATE));
   }
 
   function matchesPrice(USD) {
@@ -149,6 +151,9 @@
       if (p.verified) badges.push('<span class="shop-badge shop-badge--verified">Verified</span>');
       if (p.extra === "popular") badges.push('<span class="shop-badge shop-badge--popular">Popular</span>');
       if (p.extra === "new") badges.push('<span class="shop-badge shop-badge--new">New</span>');
+      const orderHref = p.detailPage ? p.detailPage : waUrl(p.name);
+      const orderTarget = p.detailPage ? "_self" : "_blank";
+      const orderRel = p.detailPage ? "" : ' rel="noreferrer"';
       art.innerHTML = [
         '<div class="shop-card__media">',
         '  ' + (badges.length ? '<div class="shop-card__badges">' + badges.join("") + "</div>" : ""),
@@ -160,7 +165,7 @@
         "  <p class=\"shop-card__price\">" + formatPrice(p.priceUsd) + "</p>",
         "  <p class=\"shop-card__meta\">" + escapeHtml(CATEGORY_LABELS[p.category] || p.category) + "</p>",
         "</div>",
-        '<a class="shop-card__btn" href="' + waUrl(p.name) + '" target="_blank" rel="noreferrer">Order</a>',
+        '<a class="shop-card__btn" href="' + orderHref + '" target="' + orderTarget + '"' + orderRel + ">Order</a>",
       ].join("");
       frag.appendChild(art);
     });

@@ -1,0 +1,244 @@
+:root {
+  --primary: #e50914;
+  --text: #111;
+  --muted: #666;
+  --border: #eaeaea;
+  --bg: #f6f6f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", -apple-system, sans-serif;
+  color: var(--text);
+  background: #fcfcfc;
+}
+
+.product-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 4%;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+}
+
+.product-header__back,
+.product-header__logo {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.product-page {
+  width: min(1220px, 94%);
+  margin: 18px auto 32px;
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 980px) {
+  .product-page {
+    grid-template-columns: 1.1fr 1fr 0.7fr;
+    align-items: start;
+  }
+}
+
+.gallery-panel,
+.detail-panel,
+.order-panel {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.gallery-panel,
+.detail-panel {
+  padding: 14px;
+}
+
+.order-panel {
+  padding: 16px;
+  background: var(--bg);
+}
+
+.main-image-wrap {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.main-image-wrap img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+.thumb-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-top: 10px;
+  padding-bottom: 2px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.thumb-card {
+  flex: 0 0 64px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+  line-height: 0;
+  scroll-snap-align: start;
+}
+
+.thumb-card.is-active {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.16);
+}
+
+.thumb-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: inline-block;
+}
+
+.meta-line {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.detail-panel h1 {
+  margin: 4px 0 0;
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  line-height: 1.2;
+}
+
+.product-price {
+  margin: 8px 0 0;
+  color: var(--primary);
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.option-group {
+  margin-top: 18px;
+}
+
+.option-label {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  color: #303030;
+}
+
+.color-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.color-chip,
+.size-chip {
+  border: 1px solid #d8d8d8;
+  background: #fff;
+  color: #202020;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.color-chip {
+  padding: 9px 12px;
+}
+
+.size-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.size-chip {
+  border-radius: 10px;
+  min-height: 40px;
+}
+
+.color-chip.is-active,
+.size-chip.is-active {
+  border-color: var(--primary);
+  background: rgba(229, 9, 20, 0.08);
+}
+
+.order-panel h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.product-variant {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  color: #353535;
+}
+
+.summary-price {
+  margin: 10px 0 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.btn-order {
+  margin-top: 12px;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 14px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.btn-back {
+  margin-top: 8px;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid #d7d7d7;
+  background: #fff;
+  color: var(--text);
+  padding: 11px 14px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .size-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
